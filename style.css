@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(155,89,182,0.7);
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* class of phone wraps around everything */
+
+.phone {
+  /* position stuff absolute within it */
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #eee;
+  border-radius: 15px;
+  height: 600px;
+  width: 340px;
+}
+
+.phone .content {
+  opacity: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 100 percent of the height - 60px so it gives a little bit of room down there*/
+  height: calc(100% - 60px);
+  width: 100%;
+  transition: opacity 0.4s ease;
+}
+
+.phone .content.show {
+  opacity: 1;
+}
+
+nav {
+  /* absolute within the phone container */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-top: -5px;
+  width: 100%;
+}
+
+/* let's style the menu */
+nav ul {
+  background-color: white;
+  /* all list items will line up in a row  */
+  display: flex;
+  /* without bullet points */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+}
+
+nav li{
+  color: #777;
+  cursor: pointer;
+  /* we want them to be all spread out with the same width "here's the trick"*/
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul li p {
+  font-size: 12px;
+  /* 2px top and bottom, 0 left and right */
+  margin: 2px 0;
+}
+
+/* Whichever one is hovered or active, I want to change the color. */
+
+nav ul li:hover, nav ul li.active {
+  color: #8e44ed;
+}
